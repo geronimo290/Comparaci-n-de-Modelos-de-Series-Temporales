@@ -39,6 +39,26 @@ Este proyecto es un estudio comparativo exhaustivo sobre el pronóstico de serie
       * Se consolidaron las métricas de rendimiento clave (**RMSE** y **MAE**) de los cuatro modelos finales en una tabla comparativa.
       * Se generaron gráficos para visualizar el ajuste de cada modelo frente a los datos reales de la carrera, discutiendo cómo cada enfoque manejó los patrones de degradación y los eventos aleatorios (como el Safety Car al final de la carrera).
 
+5.   **Optimización y Escalabilidad**
+
+      Tras los resultados obtenidos, donde modelos como SimpleRNN mostraron buen desempeño pero LSTMs sufrieron por falta de datos, se establece el siguiente plan de acción escalonado:
+
+      1. **Optimización de Modelos Desplegados (Optuna)**
+      Antes de incrementar la complejidad arquitectónica, el paso inmediato es maximizar el rendimiento de los modelos que ya han demostrado ser efectivos (SimpleRNN).
+      * **Acción:** Implementar un pipeline de **Optimización utilizando Optuna**.
+      * **Objetivo:** Superar las limitaciones de la búsqueda manual o aleatoria. Optuna permitirá refinar de forma eficiente hiperparámetros críticos (tasa de aprendizaje, *decay*, dimensionalidad de capas ocultas) del modelo ganador, asegurando que la línea base sea lo más robusta posible antes de compararla con arquitecturas superiores.
+      
+      2. **Ingeniería de Datos: De "Small Data" a "Big Data"**
+      Se identificó que la principal **barrera** para modelos más profundos (como LSTM) fue la **escasez** de datos al analizar una única carrera (~60 vueltas).
+      * **Acción:** Escalar el dataset ingiriendo telemetría de temporadas completas o carreras de resistencia.
+      * **Necesidad:** Para que tecnologías avanzadas como los Transformers funcionen y generalicen, es imperativo pasar de miles de registros a millones. Sin este volumen de datos, cualquier arquitectura SOTA caerá en *underfitting*.
+      
+      3. **Proyección a Futuro: Implementación de Transformers (SOTA)**
+      Una vez consolidado el volumen de datos, se procederá a la actualización tecnológica del núcleo del sistema.
+      
+      * **Concepto:** Como mejora tecnológica para superar las limitaciones de memoria de las LSTMs en secuencias muy largas (carreras de resistencia o seguimiento de teporada completa), la siguiente iteración del proyecto contempla el uso de arquitecturas basadas en **Transformers aplicados a series temporales** (como *Time-Series Transformer* o *TFT*).
+      * **Ventaja Técnica:** A diferencia del procesamiento secuencial de las RNN, el mecanismo de **Self-Attention** permitiría al modelo ponderar la importancia de eventos pasados (como un bloqueo de frenos en la vuelta 5) sobre el rendimiento futuro, capturando dependencias a largo plazo de forma más eficiente y paralela.
+
 
 ## Tecnologías Utilizadas
 
