@@ -33,7 +33,6 @@ Este proyecto es un estudio comparativo exhaustivo sobre el pronóstico de serie
       * **`SimpleRNN`:** Se implementó una red RNN apilada (`32 -> 16 -> 8`).
       * **`LSTM`:** Se implementó una red LSTM apilada con la misma arquitectura para evaluar el impacto de la "memoria a largo plazo" en el rendimiento.
       * **Arquitectura:** Ambos modelos incluyeron capas de `LayerNormalization` y `Dropout` para estabilizar el entrenamiento y prevenir el sobreajuste.
-      * **Optimización:** Se utilizó **Keras Tuner** (con `Hyperband`) para realizar una búsqueda sistemática de los mejores hiperparámetros (unidades de capa, tasa de dropout y tasa de aprendizaje) para el modelo más prometedor.
 
 4.  **Comparación Final de Modelos**
 
