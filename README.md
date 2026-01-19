@@ -73,7 +73,6 @@ Este proyecto es un estudio comparativo exhaustivo sobre el pronóstico de serie
   - **statsmodels:** Para la implementación de los modelos ARIMA y SARIMA.
   - **pmdarima:** Para la función `auto_arima` y la selección de parámetros.
   - **TensorFlow & Keras:** Para la construcción, entrenamiento y optimización de los modelos RNN y LSTM.
-  - **Keras Tuner:** Para la optimización automática de hiperparámetros.
   - **Google Colab (o Jupyter Notebook):** Como entorno de desarrollo.
 
 
